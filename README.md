@@ -1,6 +1,1 @@
-Coming Soon
-
-:q
-:wq
-:x!
-
+Coming Soon!

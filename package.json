@@ -1,0 +1,24 @@
+{
+  "name": "express-video",
+  "version": "0.0.0",
+  "description": "Express video tutorial",
+  "main": "app.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anycoloryoulike84/express-video.git"
+  },
+  "author": "Greg Griffin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anycoloryoulike84/express-video/issues"
+  },
+  "homepage": "https://github.com/anycoloryoulike84/express-video#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0",
+    "redis": "^2.7.1"
+  }
+}

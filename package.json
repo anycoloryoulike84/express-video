@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/anycoloryoulike84/express-video#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "^4.15.3",
     "nodemon": "^1.11.0",
-    "redis": "^2.7.1"
+    "redis": "^2.7.1",
+    "serve-static": "^1.12.3"
   }
 }

@@ -1,0 +1,18 @@
+body {
+	background:  radial-gradient(
+      rgba(23,123,180,.1),
+      rgba(03,203,230,.7)
+    );
+}
+
+
+.jumbotron {
+background: url(2.jpeg);
+opacity: .7;
+}
+ 
+
+
+.jumbotron h1, footer {
+	color: #fff;
+}

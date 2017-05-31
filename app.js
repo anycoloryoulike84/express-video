@@ -8,13 +8,13 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 
 app.get('/blocks', function(request, response){
-	var blocks = ["first","second","third"];
+	var blocks = ["mooo","dksdhsgdjshd","sdsd"];
 	response.json(blocks);
 });
 
 var port = 8080;
 
-app.listen(port, function () {
+	app.listen(port, function () {
   console.log('Example app listening on port: ' + port);
 });
 

@@ -18,7 +18,6 @@
 
 
 		console.log("client.js works");
-		console.dir(blocks)
 
 
 

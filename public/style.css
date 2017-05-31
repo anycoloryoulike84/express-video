@@ -15,4 +15,5 @@ opacity: .7;
 
 .jumbotron h1, footer {
 	color: #fff;
+	text-shadow: 2px 2px 8px black;
 }

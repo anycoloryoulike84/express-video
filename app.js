@@ -9,23 +9,29 @@ app.use(express.static("public"));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 // app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 
+	
+	var blocks = {
+		"Fixed": "fastened securely",
+		"Moving": "moving fast",
+		"Rotating": "rotating fast"
+	};
 
-app.get('/blocks', function(request, response){
-	var blocks = ["First Request", "Second Request", "Third Request"];
-		
-		if (request.query.limit >= 0) {
-			response.json(blocks.slice(0, request.query.limit));
+app.get('/blocks/:name', function(request, response){
+	
+		var name = request.params.name;
+		var block = name[0].toUpperCase() + name.slice(1).toLowerCase();	
+		var description = blocks[block];
+
+		if (description) {
+			response.json(description);
+
 		} else{
-			response.json(blocks);
+			response.status(404).json("no description for: " + request.params.name);
 		};
-
-	var nmb = [21,1,31,87,3,22];
-	Math.max(...nmb);
-
+		
 });
 
 var port = 8080;
-
 	app.listen(port, function () {
   console.log('Example app listening on port: ' + port);
 });

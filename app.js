@@ -16,11 +16,23 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 		"Rotating": "rotating fast"
 	};
 	var locations = {
-		"Fixed": "fastened securely",
-		"Moving": "moving fast",
-		"Rotating": "rotating fast"
+		"New": "fastened securely",
+		"Newerloc": "moving fast",
+		"Newestlocation": "rotating fast"
 	};
 
+
+
+app.get('/blocks', function(request, response){
+		
+		if (request.query.limit >= 0) {
+			response.json(blocks.slice(0, request.query.limit));
+		} else{
+			response.json(blocks);
+		};
+
+
+});
 
 
 app.param('name', function(request, response, next){
@@ -31,14 +43,12 @@ app.param('name', function(request, response, next){
 		next();
 });
 
-
 app.get('/blocks/:name', function(request, response){
-	
 
 		var description = blocks[request.blockName];
 
 		if (description) {
-			response.json(Object.keys(description));
+			response.json(Object.keys(blocks));
 
 		} else{
 			response.status(404).json("no description for: " + request.params.name);
@@ -49,7 +59,7 @@ app.get('/blocks/:name', function(request, response){
 app.get('/locations/:name', function(request, response){
 	
 
-		var locations = blocks[request.blockName];
+		var location = locations[request.blockName];
 
 		if (locations) {
 			response.json(Object.keys(locations));

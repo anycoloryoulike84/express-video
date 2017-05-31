@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "Express video tutorial",
   "main": "app.js",
-  "scripts": {
-    "test": "none"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anycoloryoulike84/express-video.git"
@@ -22,5 +19,8 @@
     "nodemon": "^1.11.0",
     "redis": "^2.7.1",
     "serve-static": "^1.12.3"
+  },
+  "scripts": {
+    "start":"open http://localhost:8080/ && node app.js"
   }
 }

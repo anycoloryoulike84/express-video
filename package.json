@@ -21,6 +21,6 @@
     "serve-static": "^1.12.3"
   },
   "scripts": {
-    "start":"open http://localhost:8080/ && node app.js"
+    "start":"open http://localhost:8080/ && nodemon app.js"
   }
 }

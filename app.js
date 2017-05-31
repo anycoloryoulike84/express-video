@@ -19,8 +19,6 @@ app.get('/blocks', function(request, response){
 			response.json(blocks);
 		};
 
-	var nmb = [21,1,31,87,3,22];
-	Math.max(...nmb);
 
 });
 

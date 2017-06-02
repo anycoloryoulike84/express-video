@@ -8,19 +8,43 @@
 
 		$.get("/blocks", appendToList);
 
+
+
 		function appendToList(blocks) {
 			var list = [];
+			var content, block;
 			for (var i in blocks) {
-				list.push($("<li>", {text:blocks[i]}));
+				block = blocks[i];
+				content = '<a href="/blocks/' + block +'">'+block+'</a>';
+				list.push($("<li>", { html:content }));
 			}
 			$(".block-list").append(list);
 		}
 
 
-		console.log("client.js works");
+		$("form").on("submit",function(e){
+			e.preventDefault();
+			var form = $(this);
+			var blockData = form.serialize();
+
+			$.ajax({
+				type: "POST",
+				url: "/blocks",
+				data: blockData,
+			}).done(function(blockName){
+				appendToList([blockName]);
+				form.trigger('reset');
+			});
+		});
+
+
+		
 
 
 
+
+
+console.log("client.js works");
 	});
 
 

@@ -6,7 +6,6 @@ var app = express();
 var loadingTime = require("./loading_time");
 
 app.use(loadingTime);
-
 app.use(express.static("public"));
 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));

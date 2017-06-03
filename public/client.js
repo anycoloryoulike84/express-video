@@ -21,7 +21,7 @@ $(function(){
     var content, block;
     for(var i in blocks){
       block = blocks[i];
-      content = '<a href="/blocks/'+block+'">'+block+'</a>'+
+      content = '<a href="/blocks/'+block+'">'+block+'</a>'+ // + // example on how to serve static images
         ' <a href="#" data-block="'+block+'">'+
         '<img src="del.png" ></a>';
       list.push($('<li>', { html: content }));
@@ -42,15 +42,8 @@ $(function(){
       type: 'DELETE',
       url: '/blocks/' + target.data('block')
     }).done(function () {
-      target.closest('li').remove();
+      target.parents('li').remove();
     });
   });
 
 });
-
-
-
-
-
-
-

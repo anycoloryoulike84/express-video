@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> post-request
 var express = require('express');
 var app = express();
 var loadingTime = require("./loading_time");
@@ -25,11 +28,15 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 
 
-app.post("/blocks", parseUrlencoded, function(request,response){
-	var newBlock = request.body;
-	blocks[newBlock.name] = newBlock.description;
-	response.status(201).json(newBlock.name);
+app.param('name', function(request, response, next){
+	
+		var name = request.params.name;
+		var block = name[0].toUpperCase() + name.slice(1).toLowerCase();
+		request.blockName = block;
+		next();
 });
+
+
 
 
 app.get('/blocks', function(request, response){
@@ -44,13 +51,6 @@ app.get('/blocks', function(request, response){
 });
 
 
-app.param('name', function(request, response, next){
-	
-		var name = request.params.name;
-		var block = name[0].toUpperCase() + name.slice(1).toLowerCase();
-		request.blockName = block;
-		next();
-});
 
 app.get('/blocks/:name', function(request, response){
 
@@ -78,6 +78,17 @@ app.get('/locations/:name', function(request, response){
 		};
 });
 
+
+app.post("/blocks", parseUrlencoded, function(request,response){
+	var newBlock = request.body;
+	blocks[newBlock.name] = newBlock.description;
+	response.status(201).json(newBlock.name);
+});
+
+app.delete("/blocks/:name", function(request,response) {
+ 	delete blocks[request.blockName];
+ 	response.sendStatus(200);
+});
 
 
 var port = 8080;

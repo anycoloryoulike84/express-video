@@ -17,8 +17,8 @@ Install via npm.
 
 ```bash
 $ npm init
-$ npm install express nodemon redis bootstrap serve-static --save
-$ nodemon app.js
+$ npm install express nodemon redis bootstrap serve-static lodash body-parser --save
+$ npm start
 ```
 
 or

@@ -4,14 +4,16 @@
 var express = require('express');
 var app = express();
 var loadingTime = require("./loading_time");
+var bodyParser = require("body-parser");
+var parseUrlencoded = bodyParser.urlencoded({extended:false});
+
 
 app.use(loadingTime);
 app.use(express.static("public"));
 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-// app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 
-	
+
 	var blocks = {
 		"Fixed": "fastened securely",
 		"Moving": "moving fast",
@@ -23,6 +25,13 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 		"Newestlocation": "rotating fast"
 	};
 
+
+
+app.post("/blocks", parseUrlencoded, function(request,response){
+	var newBlock = request.body;
+	blocks[newBlock.name] = newBlock.description;
+	response.status(201).json(newBlock.name);
+});
 
 
 app.get('/blocks', function(request, response){

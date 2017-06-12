@@ -18,11 +18,7 @@ var blocks = require("./routes/blocks");
 app.use('/blocks', blocks);
 // app.use('/users', users);
 // app.use('/locations', locations);
-
-
-
-
-
+ 
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
